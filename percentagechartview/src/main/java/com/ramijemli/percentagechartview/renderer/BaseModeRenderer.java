@@ -206,6 +206,9 @@ public abstract class BaseModeRenderer {
 
         //BACKGROUND OFFSET
         mBackgroundOffset = 0;
+
+        //TEXT VERTICAL BIAS
+        mTextVerticalBias = 0.5f;
     }
 
     BaseModeRenderer(IPercentageChartView view, TypedArray attrs) {
@@ -825,6 +828,10 @@ public abstract class BaseModeRenderer {
 
     public float getTextShadowDistY() {
         return mTextShadowDistY;
+    }
+
+    public float getTextVerticalBias() {
+        return mTextVerticalBias;
     }
 
     public float getTextShadowDistX() {

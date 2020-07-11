@@ -81,6 +81,7 @@ public class PercentageChartView extends View implements IPercentageChartView {
     private static final String STATE_TXT_SHA_RADIUS = "PercentageChartView.STATE_TXT_SHA_RADIUS";
     private static final String STATE_TXT_SHA_DIST_X = "PercentageChartView.STATE_TXT_SHA_DIST_X";
     private static final String STATE_TXT_SHA_DIST_Y = "PercentageChartView.STATE_TXT_SHA_DIST_Y";
+    private static final String STATE_TXT_VERTICAL_BIAS = "PercentageChartView.STATE_TXT_VERTICAL_BIAS";
 
     private static final String STATE_PG_BAR_THICKNESS = "PercentageChartView.STATE_PG_BAR_THICKNESS";
     private static final String STATE_PG_BAR_STYLE = "PercentageChartView.STATE_PG_BAR_STYLE";
@@ -213,6 +214,7 @@ public class PercentageChartView extends View implements IPercentageChartView {
         bundle.putFloat(STATE_TXT_SHA_RADIUS, renderer.getTextShadowRadius());
         bundle.putFloat(STATE_TXT_SHA_DIST_X, renderer.getTextShadowDistX());
         bundle.putFloat(STATE_TXT_SHA_DIST_Y, renderer.getTextShadowDistY());
+        bundle.putFloat(STATE_TXT_VERTICAL_BIAS, renderer.getTextVerticalBias());
 
         if (renderer instanceof RingModeRenderer) {
             bundle.putFloat(STATE_PG_BAR_THICKNESS, ((RingModeRenderer) renderer).getProgressBarThickness());
@@ -277,6 +279,8 @@ public class PercentageChartView extends View implements IPercentageChartView {
                     bundle.getFloat(STATE_TXT_SHA_RADIUS),
                     bundle.getFloat(STATE_TXT_SHA_DIST_X),
                     bundle.getFloat(STATE_TXT_SHA_DIST_Y));
+
+            renderer.setTextVerticalBias(bundle.getFloat(STATE_TXT_VERTICAL_BIAS));
 
             if (bundle.getInt(STATE_GRADIENT_TYPE, -1) != -1) {
                 renderer.setGradientColorsInternal(bundle.getInt(STATE_GRADIENT_TYPE),
